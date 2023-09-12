@@ -1,9 +1,10 @@
 https://storehousepbp.adaptable.app/
+
 1.
 
 2.
 
-3.Berikut adalah beberapa alasan mengapa kita menggunakan virtual environment:
+3. Berikut adalah beberapa alasan mengapa kita menggunakan virtual environment:
 
 Isolasi Proyek: Virtual environment memungkinkan kita untuk mengisolasi dependensi proyek tertentu dari lingkungan Python global. Ini berarti kita dapat memiliki versi yang berbeda dari paket Python di setiap proyek tanpa khawatir tentang konflik dependensi. Ini membantu mencegah masalah yang mungkin timbul ketika dua proyek menggunakan versi paket Python yang berbeda.
 
@@ -23,7 +24,7 @@ Kesulitan Manajemen Paket: Tanpa virtual environment, manajemen paket Python men
 
 Ketergantungan pada Lingkungan Global: Penggunaan paket Python dari sistem global dapat membuat proyek kita bergantung pada versi paket yang ada di lingkungan tersebut, yang mungkin tidak selalu sesuai dengan kebutuhan proyek kita.
 
-4.MVC, MVT, dan MVVM
+4. MVC, MVT, dan MVVM
 
 MVC (Model-View-Controller):
 

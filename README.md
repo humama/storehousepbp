@@ -1,8 +1,14 @@
 https://storehousepbp.adaptable.app/
 
-1.
+1.>Membuat sebuah proyek Django baru.<br>
+Pertama buat direktori dengan nama aplikasi yang dibuat (storehousepbp) terus kalau sudah di inisiasi dengan menjalankan `git init` di cmd yang ada di direktori ini lalu buatlah virtual environment dengan menjalankan `python -m venv env` lalu aktifkan virtual environment tersebut dengan `env\Scripts\activate.bat` untuk di Windows.
+Di direktori yang sama buatlah file dengan nama `requirements.txt` lalu tambahkan beberapa dependencies yang diperlukan untuk membuat projek django seperti django, gunicorn dan lain lain. lalu pasang dependencies tersebut dengan menjalankan perintah ini di virtual environment yang tadi sudah di aktifkan `pip install -r requirements.txt`.
+Buatlah projek django dengan menjalankan `django-admin startproject storehousepbp .`. nama aplikasi nya sesuai yang ingin dibuat.<br><br>
+>Membuat aplikasi dengan nama main pada proyek tersebut.<br>
 
-2.
+
+2.![image](https://github.com/humama/storehousepbp/assets/20278539/bef151e5-9d7d-4fcd-ac9e-ab53b90ee6e5)
+
 
 3. Berikut adalah beberapa alasan mengapa kita menggunakan virtual environment:
 

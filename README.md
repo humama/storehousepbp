@@ -1,13 +1,17 @@
 https://storehousepbp.adaptable.app/
 
-1.>Membuat sebuah proyek Django baru.<br>
+1.
+>Membuat sebuah proyek Django baru.<br>
+
 Pertama buat direktori dengan nama aplikasi yang dibuat (storehousepbp) terus kalau sudah di inisiasi dengan menjalankan `git init` di cmd yang ada di direktori ini lalu buatlah virtual environment dengan menjalankan `py -m venv env` lalu aktifkan virtual environment tersebut dengan `env\Scripts\activate.bat` untuk di Windows.
 Di direktori yang sama buatlah file dengan nama `requirements.txt` lalu tambahkan beberapa dependencies yang diperlukan untuk membuat projek django seperti django, gunicorn dan lain lain. lalu pasang dependencies tersebut dengan menjalankan perintah ini di virtual environment yang tadi sudah di aktifkan `pip install -r requirements.txt`.
 Buatlah projek django dengan menjalankan `django-admin startproject storehousepbp .`. nama aplikasi nya sesuai yang ingin dibuat.<br><br>
 >Membuat aplikasi dengan nama main pada proyek tersebut.<br>
+
 Untuk membuat aplikasi dengan nama `main` jalankan perintah `py manage.py startapp main`.
 Lalu masuk ke `settings.py` di direktori storehousepbp (aplikasi yang dibuat) lalu di bagian `INSTALLED_APPS` tambahkan 'main' ke dalam aplikasi.
 >Melakukan routing pada proyek agar dapat menjalankan aplikasi main.<br>
+
 Buatlah file bernama `urls.py` di direktori main lalu isi dengan kode :<br>
 `from django.urls import path
 from main.views import show_main
@@ -20,7 +24,8 @@ urlpatterns = [
 Kemudian, masuk ke `urls.py` yang ada di direktori storehousepbp (aplikasi yang dibuat) kemudian tambahkan beberapa kode seperti :<br>
 `from django.urls import path, include` hanya ditambahkan impor include dan <br>
 `    path('main/', include('main.urls')),` ditambahkan di dalam urlspatterns <br>
->Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib.
+>Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib.<br>
+
 
 
 2.<br>![image](https://github.com/humama/storehousepbp/assets/20278539/bef151e5-9d7d-4fcd-ac9e-ab53b90ee6e5)<br>

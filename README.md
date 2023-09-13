@@ -26,7 +26,46 @@ Kemudian, masuk ke `urls.py` yang ada di direktori storehousepbp (aplikasi yang 
 `    path('main/', include('main.urls')),` ditambahkan di dalam urlspatterns <br>
 >Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib.<br>
 
+Buka file `models.py` di direktori main lalu diisi dengan kode :<br>
+`from django.db import models
 
+class Item(models.Model):
+    name = models.CharField(max_length=255)
+    date_added = models.DateField(auto_now_add=True)
+    amount = models.IntegerField()
+    description = models.TextField()`<br>
+>Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.<br>
+
+Buka file `views.py` di direktori main lalu tambahkan kode :<br>
+`from django.shortcuts import render
+
+def show_main(request):
+    context = {
+        'applications': 'storehousepbp', # isikan dengan nama aplikasi sendiri
+        'name': 'Humam Al Labib', #isikan dengan nama sendiri
+        'class': 'PBP F' # isikan dengan kelas kalian sendiri
+    }
+
+    return render(request, "main.html", context)`<br>
+> Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.<br>
+
+Buatlah file `urls.py` di direktori main lalu isikan kode : <br>
+`from django.urls import path
+from main.views import show_main
+
+app_name = 'main'
+
+urlpatterns = [
+    path('', show_main, name='show_main'),
+]`<br>
+>Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.<br>
+
+Tambahkan * di variabel ALLOWED_HOSTS di settings.py yang ada di direktori storehousepbp (aplikasi yang dibuat)<br>
+`ALLOWED_HOSTS = ["*"]`<br>
+Karena akun Adaptable sudah di disable jadi sudah tidak bisa di pakai lagi<br>
+>Membuat sebuah README.md yang berisi tautan menuju aplikasi Adaptable yang sudah di-deploy, serta jawaban dari beberapa pertanyaan berikut.<br>
+
+Buat file README.md lalu di add, commit, dan push ke dalam github atau buat file README.md di dalam github lalu edit di dalam github
 
 2.<br>![image](https://github.com/humama/storehousepbp/assets/20278539/bef151e5-9d7d-4fcd-ac9e-ab53b90ee6e5)<br>
 Kaitan antara urls.py, views.py, models.py, dan berkas HTML adalah dasar dari kerangka kerja Django dalam mengembangkan aplikasi web. Setiap bagian memiliki peran dan tanggung jawabnya sendiri dalam proses pengembangan aplikasi. Berikut adalah penjelasan kaitan masing-masing komponen:

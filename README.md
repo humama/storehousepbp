@@ -1,3 +1,5 @@
+<details>
+    <summary>Tugas 2</summary>
 https://storehousepbp.adaptable.app/
 
 1.
@@ -123,3 +125,4 @@ MVVM (Model-View-ViewModel):
 * ViewModel: Bertindak sebagai perantara antara Model dan View. Ini memungkinkan View untuk berinteraksi dengan Model tanpa perlu tahu tentang Model secara langsung.
 
 Perbedaan utama antara ketiganya adalah bagaimana mereka mengatur logika aplikasi dan tampilan. Django menggunakan pendekatan MVT, di mana Template mirip dengan Controller dalam pendekatan MVC tradisional. Django secara otomatis mengelola aliran permintaan HTTP, sehingga developer lebih fokus pada logika aplikasi dan tampilan.
+</details>

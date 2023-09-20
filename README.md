@@ -15,31 +15,31 @@ Lalu masuk ke `settings.py` di direktori storehousepbp (aplikasi yang dibuat) la
 >Melakukan routing pada proyek agar dapat menjalankan aplikasi main.<br>
 
 Buatlah file bernama `urls.py` di direktori main lalu isi dengan kode :<br>
-`from django.urls import path
+<pre>from django.urls import path
 from main.views import show_main
 
 app_name = 'main'
 
 urlpatterns = [
     path('', show_main, name='show_main'),
-]`<br>
+]</pre>
 Kemudian, masuk ke `urls.py` yang ada di direktori storehousepbp (aplikasi yang dibuat) kemudian tambahkan beberapa kode seperti :<br>
 `from django.urls import path, include` hanya ditambahkan impor include dan <br>
 `    path('main/', include('main.urls')),` ditambahkan di dalam urlspatterns <br>
 >Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib.<br>
 
 Buka file `models.py` di direktori main lalu diisi dengan kode :<br>
-`from django.db import models
+<pre>from django.db import models
 
 class Item(models.Model):
     name = models.CharField(max_length=255)
     date_added = models.DateField(auto_now_add=True)
     amount = models.IntegerField()
-    description = models.TextField()`<br>
+    description = models.TextField()</pre>
 >Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.<br>
 
 Buka file `views.py` di direktori main lalu tambahkan kode :<br>
-`from django.shortcuts import render
+<pre>from django.shortcuts import render
 
 def show_main(request):
     context = {
@@ -48,18 +48,18 @@ def show_main(request):
         'class': 'PBP F' # isikan dengan kelas kalian sendiri
     }
 
-    return render(request, "main.html", context)`<br>
+    return render(request, "main.html", context)</pre>
 > Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.<br>
 
 Buatlah file `urls.py` di direktori main lalu isikan kode : <br>
-`from django.urls import path
+<pre>from django.urls import path
 from main.views import show_main
 
 app_name = 'main'
 
 urlpatterns = [
     path('', show_main, name='show_main'),
-]`<br>
+]</pre>
 >Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.<br>
 
 Tambahkan * di variabel ALLOWED_HOSTS di settings.py yang ada di direktori storehousepbp (aplikasi yang dibuat)<br>
@@ -125,4 +125,235 @@ MVVM (Model-View-ViewModel):
 * ViewModel: Bertindak sebagai perantara antara Model dan View. Ini memungkinkan View untuk berinteraksi dengan Model tanpa perlu tahu tentang Model secara langsung.
 
 Perbedaan utama antara ketiganya adalah bagaimana mereka mengatur logika aplikasi dan tampilan. Django menggunakan pendekatan MVT, di mana Template mirip dengan Controller dalam pendekatan MVC tradisional. Django secara otomatis mengelola aliran permintaan HTTP, sehingga developer lebih fokus pada logika aplikasi dan tampilan.
+</details>
+
+<details>
+    <summary>Tugas 3</summary>
+    
+1. Perbedaan antara form POST dan form GET dalam Django:
+
+Form POST: Ketika sebuah form dikirim dengan metode POST, data yang dikirim oleh form akan dikirimkan sebagai bagian dari body permintaan HTTP. Data ini tidak akan terlihat di URL. Ini cocok digunakan ketika Anda ingin mengirim data yang sensitif atau besar, seperti kata sandi atau file.
+
+Form GET: Saat sebuah form dikirim dengan metode GET, data yang dikirimkan akan disertakan dalam URL sebagai parameter query string. Ini membuat data terlihat dalam URL. Form GET lebih cocok digunakan untuk permintaan pencarian atau tindakan yang dapat dibagikan (shareable), karena URL dapat disalin dan dibuka di browser lain.
+
+2. Perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data:
+
+XML (eXtensible Markup Language): XML adalah format data yang digunakan untuk menyimpan dan mengirim data terstruktur. Ini mengandung informasi tentang struktur data dalam bentuk tag dan atribut. XML sering digunakan dalam pertukaran data antara sistem yang berbeda atau dalam penguraian dokumen seperti RSS atau SOAP.
+
+JSON (JavaScript Object Notation): JSON adalah format data yang sangat ringan dan mudah dibaca oleh manusia. Ini sering digunakan untuk pertukaran data antara aplikasi web modern karena desainnya yang sederhana dan kemampuannya untuk menggambarkan objek dan array dengan baik.
+
+HTML (HyperText Markup Language): HTML adalah bahasa markup yang digunakan untuk membuat halaman web. Meskipun HTML lebih berfokus pada tampilan dan struktur halaman web daripada pertukaran data, beberapa aplikasi web menggunakan teknik seperti web scraping untuk mengekstrak data dari halaman web HTML.
+
+3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern:
+
+Ringan: JSON adalah format data yang sangat ringan, baik untuk dikirimkan dan diterima oleh aplikasi web. Ini menghemat bandwidth dan memungkinkan pertukaran data yang efisien.
+
+Mudah Dibaca: JSON mudah dibaca oleh manusia dan mudah untuk diurai oleh aplikasi. Ini membuatnya lebih mudah untuk debugging dan pemahaman data.
+
+Mendukung Struktur Data: JSON mendukung struktur data yang lebih kompleks, termasuk objek dan array. Ini memungkinkan aplikasi untuk mengirim data yang lebih terstruktur daripada format data yang lebih sederhana seperti CSV.
+
+Kompatibilitas dengan Bahasa: JSON dapat dengan mudah diurai dalam berbagai bahasa pemrograman, termasuk JavaScript, Python, Java, dan banyak lainnya. Ini membuatnya menjadi format yang sangat serbaguna untuk pertukaran data antara berbagai aplikasi web.
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step
+
+>Membuat input form untuk menambahkan objek model pada app sebelumnya.
+untuk membuat form maka untuk memudahkan kita akan membuat folder templates di dalam root folder, lalu kita akan membuat template yg bernama `base.html` di dalam folder tersebut. `base.html` akan kita isi seperti :
+<pre>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block meta %}
+        {% endblock meta %}
+    </head>
+
+    <body>
+        {% block content %}
+        {% endblock content %}
+    </body>
+</html>
+kalau tidak kelihatan maaf karena kode html di sini jadi jalan
+</pre>
+lalu di dalam file `settings.py` yang ada di dalam subdirektori storehousepbp (nama aplikasi) dan di bagian `TEMPLATES` di baris `DIRS` diisi dengan `BASE_DIR / 'templates'` 
+Buat file di dalam direktori `main` dengan nama `forms.py` dan diisi dengan kode:
+<pre>
+from django.forms import ModelForm
+from main.models import Item
+
+class ItemForm(ModelForm):
+    class Meta:
+        model = Item
+        fields = ["name", "amount", "description"]
+</pre>
+>Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+untuk bagian HTML kita akan menambahkan beberapa import 
+<pre>
+from django.http import HttpResponseRedirect
+from main.forms import ItemForm
+from django.urls import reverse
+from .models import Item
+</pre>
+lalu buat fungsi dengan nama create_item di file tersebut yg terisi:
+<pre>def create_item(request):
+    form = ItemForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "create_item.html", context)</pre>
+dan di fungsi `show_main` kita ubah jadi:
+<pre>def show_main(request):
+    items = Item.objects.all()
+
+    context = {
+        'applications': 'storehousepbp', # isikan dengan nama aplikasi sendiri
+        'name': 'Humam Al Labib', #isikan dengan nama sendiri
+        'class': 'PBP F', # isikan dengan kelas kalian sendiri
+        'items': items
+    }
+
+    return render(request, "main.html", context)</pre>
+di file `urls.py` yang berada di folder `main` kita import fungsi tadi
+<pre>from main.views import show_main, create_item</pre>
+
+lalu tambahkan path url di urlspattern yang ada di `urls.py` di `main`
+
+<pre>path('create-item', create_item, name='create_item'),</pre>
+
+buatlah file bernama `create_item.html` di dalam di direktori `main/templates` lalu diisi :
+<pre>
+{% extends 'base.html' %} 
+
+{% block meta %}
+<title>Create Item</title>
+{% endblock meta %}
+
+{% block content %}
+<h1>Add New Item</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Add Item"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}
+kalau tidak kelihatan maaf karena kode html di sini jadi jalan
+</pre>
+lalu kita tambahkan di `main.html` yaitu:
+<pre>
+<table>
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Date Added</th>
+        </tr>
+    
+        {% comment %} Berikut cara memperlihatkan data item di bawah baris ini {% endcomment %}
+    
+        {% for item in items %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.date_added}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <br />
+    
+    <a href="{% url 'main:create_item' %}">
+        <button>
+            Add New Item
+        </button>
+    </a>
+kalau tidak kelihatan maaf karena kode html di sini jadi jalan
+</pre>
+untuk bagian bonus kita tambahkan di fungsi `show_main` :
+<pre>
+def show_main(request):
+    items = Item.objects.all()
+    item_count = 0
+    for item in items:
+        item_count += item.amount
+
+    context = {
+        'applications': 'storehousepbp', # isikan dengan nama aplikasi sendiri
+        'name': 'Humam Al Labib', #isikan dengan nama sendiri
+        'class': 'PBP F', # isikan dengan kelas kalian sendiri
+        'items': items,
+        'item_count': item_count
+    }
+
+    return render(request, "main.html", context)
+</pre>
+lalu tambahkan di `main.html`:
+<pre>
+<p>Kamu menyimpan {{ item_count }} item di dalam aplikasi ini</p>
+</pre>
+untuk bagian xml, json, xml_by_id dan json_by_id ditambahkan fungsinya di `views.py` :
+<pre>
+def show_xml(request):
+    data = Item.objects.all()
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+def show_json(request):
+    data = Item.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def show_xml_by_id(request, id):
+    data = Item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+def show_json_by_id(request, id):
+    data = Item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+</pre>
+lalu tambahkan import yang ada di`views.py` jadi ada import :
+<pre>from django.http import HttpResponseRedirect, HttpResponse
+from main.forms import ItemForm
+from django.urls import reverse
+from django.shortcuts import render
+from .models import Item
+from django.core import serializers
+</pre>
+>Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+tambahkan import yang ada di `urls.py` jadi:
+<pre>from main.views import show_main, create_item, show_xml, show_json, show_xml_by_id, show_json_by_id
+</pre>
+lalu tambahkan di urlspattern :
+<pre>    path('create-item', create_item, name='create_item'),
+    path('xml/', show_xml, name='show_xml'), 
+    path('json/', show_json, name='show_json'), 
+    path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
+    path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
+</pre>
+
+HTML:
+![HTML](image.png)
+
+XML:
+![XML](image-1.png)
+
+JSON:
+![JSON](image-2.png)
+
+XML by ID:
+
+
+JSON by ID:
+![JSON_BY_ID](image-3.png)
+
 </details>

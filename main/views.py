@@ -8,7 +8,9 @@ from django.core import serializers
 # Create your views here.
 def show_main(request):
     items = Item.objects.all()
-    item_count = Item.objects.count()
+    item_count = 0
+    for item in items:
+        item_count += item.amount
 
     context = {
         'applications': 'storehousepbp', # isikan dengan nama aplikasi sendiri

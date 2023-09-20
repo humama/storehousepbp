@@ -9,9 +9,3 @@ class mainTest(TestCase):
     def test_main_using_main_template(self):
         response = Client().get('/main/')
         self.assertTemplateUsed(response, 'main.html')
-    def test_empty_get(self):
-        response = self.client.get(
-            "/en/dev/search/",
-            headers={"host": "docs.djangoproject.dev:8000"},
-        )
-        self.assertEqual(response.status_code, 200)

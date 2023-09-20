@@ -351,7 +351,7 @@ JSON:
 ![JSON](image-2.png)
 
 XML by ID:
-
+![image](https://github.com/humama/storehousepbp/assets/20278539/b88d0415-66b5-44a9-86cf-eb4bca360e3b)
 
 JSON by ID:
 ![JSON_BY_ID](image-3.png)

@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import show_main, create_item, show_xml, show_json, show_xml_by_id, show_json_by_id, register, login_user, logout_user, remove
+from main.views import show_main, create_item, show_xml, show_json, show_xml_by_id, show_json_by_id, register, login_user, logout_user, remove, increment, decrement
 
 app_name = 'main'
 
@@ -14,4 +14,6 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
     path('remove/<int:id>', remove, name='remove'),
+    path('increment/<int:id>', increment, name='increment'),
+    path('decrement/<int:id>', decrement, name='decrement'),
 ]

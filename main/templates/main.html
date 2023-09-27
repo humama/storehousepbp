@@ -28,7 +28,7 @@
         {% for item in items %}
             <tr>
                 <td>{{item.name}}</td>
-                <td>{{item.amount}}</td>
+                <td><form action="{% url 'main:decrement' id=item.id %}" method="post">{%csrf_token%}<button>-</button></form> {{item.amount}} <form action="{% url 'main:increment' id=item.id %}" method="post">{%csrf_token%}<button>+</button></form></td>
                 <td>{{item.description}}</td>
                 <td>{{item.date_added}}</td>
                 <td>

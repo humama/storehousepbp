@@ -99,3 +99,24 @@ def remove(request, id = None):
     elif request.method == 'POST':
         data.delete()
         return redirect('/')
+
+def increment(request, id = None):
+    data = Item.objects.get(pk=id)
+    context = {'item' : data}
+    if request.method == 'GET':
+        return render(request, '/', context)
+    elif request.method == 'POST':
+        data.amount += 1
+    data.save()
+    return redirect('/')
+    
+def decrement(request, id = None):
+    data = Item.objects.get(pk=id)
+    context = {'item' : data}
+    if request.method == 'GET':
+        return render(request, '/', context)
+    elif request.method == 'POST':
+        if data.amount > 1:
+            data.amount -= 1
+    data.save()
+    return redirect('/')

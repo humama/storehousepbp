@@ -11,6 +11,8 @@
 <p>{{ name }}<p>
 <h5>Class: </h5>
 <p>{{ class }}<p>
+<h5>Username: </h5>
+<p>{{ username }}<p>
 
 <p>Kamu menyimpan {{ item_count }} item di dalam aplikasi ini</p>
     <table>
@@ -29,6 +31,14 @@
                 <td>{{item.amount}}</td>
                 <td>{{item.description}}</td>
                 <td>{{item.date_added}}</td>
+                <td>
+                    <form action="{% url 'main:remove' id=item.id %}" method="post">
+                        {%csrf_token%}
+                        <button>
+                            Remove
+                        </button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </table>
@@ -40,4 +50,10 @@
             Add New Item
         </button>
     </a>
+    <a href="{% url 'main:logout' %}">
+        <button>
+            Logout
+        </button>
+    </a>
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
 {% endblock content %}

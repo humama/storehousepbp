@@ -4,9 +4,15 @@
 <title>Inventory</title>
 {% endblock meta %}
 
+{% block navbar %}
+<a href="{% url 'main:logout' %}">
+    <button class="btn btn-outline-success" type="submit">
+        Logout
+    </button>
+</a>
+{% endblock navbar %}
+
 {% block content %}
-<h5>Applications Name:</h5>
-<p>{{ applications }}</p>
 <h5>Name: </h5>
 <p>{{ name }}<p>
 <h5>Class: </h5>
@@ -54,11 +60,6 @@
     <a href="{% url 'main:create_item' %}">
         <button>
             Add New Item
-        </button>
-    </a>
-    <a href="{% url 'main:logout' %}">
-        <button>
-            Logout
         </button>
     </a>
     <h5>Sesi terakhir login: {{ last_login }}</h5>

@@ -72,15 +72,15 @@ Buat file README.md lalu di add, commit, dan push ke dalam github atau buat file
 2.<br>![image](https://github.com/humama/storehousepbp/assets/20278539/bef151e5-9d7d-4fcd-ac9e-ab53b90ee6e5)<br>
 Kaitan antara urls.py, views.py, models.py, dan berkas HTML adalah dasar dari kerangka kerja Django dalam mengembangkan aplikasi web. Setiap bagian memiliki peran dan tanggung jawabnya sendiri dalam proses pengembangan aplikasi. Berikut adalah penjelasan kaitan masing-masing komponen:
 
-models.py: Berkas ini berisi definisi model-data yang digunakan oleh aplikasi Anda. Model adalah abstraksi dari entitas yang akan disimpan dalam database. Kaitan utama antara models.py dan komponen lainnya adalah:<br>
+models.py: Berkas ini berisi definisi model-data yang digunakan oleh aplikasi kita. Model adalah abstraksi dari entitas yang akan disimpan dalam database. Kaitan utama antara models.py dan komponen lainnya adalah:<br>
 * Kaitan dengan views.py: Model digunakan oleh view untuk mengambil data dari database, memprosesnya, dan mengirimkannya ke template. View dapat menggunakan query database Django (ORM) untuk berinteraksi dengan model dan mendapatkan data yang diperlukan.<br>
-views.py: Berkas ini berisi logika aplikasi web Anda, termasuk tindakan yang diambil saat pengguna mengunjungi URL tertentu. Kaitan antara views.py dan komponen lainnya adalah:<br>
-* Kaitan dengan urls.py: View dihubungkan dengan URL melalui berkas urls.py. Anda mendefinisikan path URL yang mengarahkan ke view tertentu. Ketika pengguna mengakses URL tersebut, view yang sesuai akan dijalankan.<br>
+views.py: Berkas ini berisi logika aplikasi web kita, termasuk tindakan yang diambil saat pengguna mengunjungi URL tertentu. Kaitan antara views.py dan komponen lainnya adalah:<br>
+* Kaitan dengan urls.py: View dihubungkan dengan URL melalui berkas urls.py. kita mendefinisikan path URL yang mengarahkan ke view tertentu. Ketika pengguna mengakses URL tersebut, view yang sesuai akan dijalankan.<br>
 * Kaitan dengan models.py: View sering digunakan untuk mengambil data dari model (database) menggunakan Django ORM. View dapat mengambil, memproses, dan mengirimkan data dari model ke template HTML.<br>
 * Kaitan dengan berkas HTML: View juga bertanggung jawab untuk merender (mengisi) template HTML dengan data yang diperlukan. View menggunakan template tag Django untuk memasukkan data dari model ke dalam HTML sehingga data tersebut dapat ditampilkan kepada pengguna.
 
-urls.py: Berkas ini berisi konfigurasi URL untuk aplikasi Anda. Ini menghubungkan URL dengan view yang sesuai. Kaitan antara urls.py dan komponen lainnya adalah:<br>
-* Kaitan dengan views.py: Dalam urls.py, Anda mendefinisikan path URL yang mengarahkan ke view tertentu. Ini berarti URL tertentu akan mengeksekusi view yang sesuai saat diakses oleh pengguna.
+urls.py: Berkas ini berisi konfigurasi URL untuk aplikasi kita. Ini menghubungkan URL dengan view yang sesuai. Kaitan antara urls.py dan komponen lainnya adalah:<br>
+* Kaitan dengan views.py: Dalam urls.py, kita mendefinisikan path URL yang mengarahkan ke view tertentu. Ini berarti URL tertentu akan mengeksekusi view yang sesuai saat diakses oleh pengguna.
 
 Berkas HTML (Template): Template HTML digunakan untuk merender tampilan yang akan ditampilkan kepada pengguna. Kaitan antara berkas HTML dan komponen lainnya adalah:<br>
 * Kaitan dengan views.py: View menggunakan template untuk merender tampilan. View mengirimkan data dari model ke template agar data tersebut dapat ditampilkan dalam HTML.
@@ -132,7 +132,7 @@ Perbedaan utama antara ketiganya adalah bagaimana mereka mengatur logika aplikas
     
 1. Perbedaan antara form POST dan form GET dalam Django:
 
-Form POST: Ketika sebuah form dikirim dengan metode POST, data yang dikirim oleh form akan dikirimkan sebagai bagian dari body permintaan HTTP. Data ini tidak akan terlihat di URL. Ini cocok digunakan ketika Anda ingin mengirim data yang sensitif atau besar, seperti kata sandi atau file.
+Form POST: Ketika sebuah form dikirim dengan metode POST, data yang dikirim oleh form akan dikirimkan sebagai bagian dari body permintaan HTTP. Data ini tidak akan terlihat di URL. Ini cocok digunakan ketika kita ingin mengirim data yang sensitif atau besar, seperti kata sandi atau file.
 
 Form GET: Saat sebuah form dikirim dengan metode GET, data yang dikirimkan akan disertakan dalam URL sebagai parameter query string. Ini membuat data terlihat dalam URL. Form GET lebih cocok digunakan untuk permintaan pencarian atau tindakan yang dapat dibagikan (shareable), karena URL dapat disalin dan dibuka di browser lain.
 
@@ -361,18 +361,18 @@ JSON by ID:
     <summary>Tugas 4</summary>
 1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
     Django UserCreationForm:
-Django UserCreationForm adalah sebuah formulir bawaan yang disediakan oleh Django untuk memudahkan proses pembuatan akun pengguna (user) dalam aplikasi web yang dibangun dengan Django. Formulir ini secara khusus dirancang untuk mengumpulkan informasi yang diperlukan untuk membuat akun pengguna baru, seperti username, password, dan konfirmasi password. Kelebihan dari UserCreationForm adalah kemudahannya dalam mengelola proses pendaftaran pengguna, termasuk validasi data, enkripsi password, dan integrasi dengan sistem otentikasi Django. Namun, kekurangannya adalah formulir ini dapat memerlukan penyesuaian tambahan jika Anda memiliki kebutuhan yang lebih kompleks atau jika Anda ingin menambahkan bidang-bidang tambahan pada formulir.
+Django UserCreationForm adalah sebuah formulir bawaan yang disediakan oleh Django untuk memudahkan proses pembuatan akun pengguna (user) dalam aplikasi web yang dibangun dengan Django. Formulir ini secara khusus dirancang untuk mengumpulkan informasi yang diperlukan untuk membuat akun pengguna baru, seperti username, password, dan konfirmasi password. Kelebihan dari UserCreationForm adalah kemudahannya dalam mengelola proses pendaftaran pengguna, termasuk validasi data, enkripsi password, dan integrasi dengan sistem otentikasi Django. Namun, kekurangannya adalah formulir ini dapat memerlukan penyesuaian tambahan jika kita memiliki kebutuhan yang lebih kompleks atau jika kita ingin menambahkan bidang-bidang tambahan pada formulir.
 
 2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
 Perbedaan antara Autentikasi dan Otorisasi dalam Konteks Django:
 
 Autentikasi adalah proses mengidentifikasi pengguna dan memverifikasi bahwa mereka adalah pengguna yang sah. Dalam Django, ini dilakukan melalui sistem otentikasi yang memeriksa identitas pengguna, seperti username dan password.
-Otorisasi adalah proses yang menentukan apa yang diizinkan atau tidak diizinkan oleh pengguna yang telah terautentikasi. Ini berkaitan dengan hak akses pengguna terhadap berbagai fitur atau data dalam aplikasi. Django memiliki sistem otorisasi yang memungkinkan Anda untuk mengatur izin pengguna dengan sangat terperinci.
-Keduanya penting karena autentikasi mengidentifikasi pengguna, sementara otorisasi mengontrol apa yang dapat mereka lakukan dalam aplikasi. Tanpa autentikasi, Anda tidak tahu siapa penggunanya, dan tanpa otorisasi, Anda tidak dapat mengendalikan akses mereka.
+Otorisasi adalah proses yang menentukan apa yang diizinkan atau tidak diizinkan oleh pengguna yang telah terautentikasi. Ini berkaitan dengan hak akses pengguna terhadap berbagai fitur atau data dalam aplikasi. Django memiliki sistem otorisasi yang memungkinkan kita untuk mengatur izin pengguna dengan sangat terperinci.
+Keduanya penting karena autentikasi mengidentifikasi pengguna, sementara otorisasi mengontrol apa yang dapat mereka lakukan dalam aplikasi. Tanpa autentikasi, kita tidak tahu siapa penggunanya, dan tanpa otorisasi, kita tidak dapat mengendalikan akses mereka.
 
 3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
 Cookies dalam Konteks Aplikasi Web dan Penggunaan Django:
-Cookies adalah data kecil yang disimpan di sisi klien (misalnya, browser pengguna) dan digunakan oleh server web untuk menyimpan informasi sesi atau pengguna. Dalam Django, Anda dapat menggunakan cookies untuk mengelola data sesi pengguna. Misalnya, Anda dapat menggunakan cookies untuk mengidentifikasi pengguna yang telah login atau untuk menyimpan preferensi pengguna.
+Cookies adalah data kecil yang disimpan di sisi klien (misalnya, browser pengguna) dan digunakan oleh server web untuk menyimpan informasi sesi atau pengguna. Dalam Django, kita dapat menggunakan cookies untuk mengelola data sesi pengguna. Misalnya, kita dapat menggunakan cookies untuk mengidentifikasi pengguna yang telah login atau untuk menyimpan preferensi pengguna.
 
 4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
 Keamanan Cookies dalam Pengembangan Web:
@@ -381,7 +381,7 @@ Penggunaan cookies secara default dalam pengembangan web tidak selalu aman. Bebe
 Cross-Site Scripting (XSS): Serangan XSS dapat menyusupkan kode berbahaya ke dalam cookies dan membahayakan pengguna.
 Cross-Site Request Forgery (CSRF): Serangan CSRF dapat digunakan untuk memanipulasi cookies pengguna tanpa izin.
 Data Sensitif: Cookies dapat menyimpan data sensitif seperti token otentikasi. Mereka harus dienkripsi dan diatur dengan hati-hati.
-Untuk mengamankan penggunaan cookies, Anda perlu memastikan bahwa Anda mengimplementasikan tindakan perlindungan keamanan seperti penggunaan HTTPS, sanitasi input, dan memeriksa integritas data cookies. Django memiliki beberapa mekanisme keamanan bawaan yang dapat membantu melindungi cookies, seperti proteksi terhadap CSRF. Tetapi, masih penting untuk memahami risiko dan menerapkan praktik pengembangan yang aman.
+Untuk mengamankan penggunaan cookies, kita perlu memastikan bahwa kita mengimplementasikan tindakan perlindungan keamanan seperti penggunaan HTTPS, sanitasi input, dan memeriksa integritas data cookies. Django memiliki beberapa mekanisme keamanan bawaan yang dapat membantu melindungi cookies, seperti proteksi terhadap CSRF. Tetapi, masih penting untuk memahami risiko dan menerapkan praktik pengembangan yang aman.
 
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step
 > Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
@@ -443,4 +443,42 @@ lalu tambahkan
 </pre>
 di `models.py` tambahkan `from django.contrib.auth.models import User`
 lalu tambahkan `user = models.ForeignKey(User, on_delete=models.CASCADE)` di dalam class Item
+</details>
+<details>
+    <summary>Tugas 5</summary>
+1. Element Selector:
+
+Manfaat: Element selector memungkinkan kita untuk memilih semua elemen HTML dengan tipe tertentu dan mengaplikasikan gaya ke semua elemen tersebut. Ini berguna ketika kita ingin menerapkan gaya serupa pada beberapa elemen HTML yang memiliki tipe yang sama, misalnya semua elemen `<p>` dalam dokumen HTML.
+Waktu yang Tepat untuk Menggunakan: kita dapat menggunakan element selector saat kita ingin menerapkan gaya umum pada elemen-elemen dengan tipe tertentu dalam dokumen kita.
+2. HTML5 Tag:
+
+HTML5 adalah versi terbaru dari HTML yang membawa sejumlah perubahan dan peningkatan, termasuk pengenalan sejumlah tag baru. Beberapa tag HTML5 yang penting termasuk:
+`<header>`: Untuk mengelompokkan elemen-elemen yang berada di bagian atas halaman atau bagian kepala.
+`<nav>`: Untuk mengelompokkan elemen-elemen yang berisi menu navigasi.
+`<section>`: Untuk mengelompokkan konten dalam sebuah bagian atau subbagian dari dokumen.
+`<article>`: Untuk mengelompokkan konten yang dapat berdiri sendiri dan memiliki makna semantik sendiri.
+`<footer>`: Untuk mengelompokkan elemen-elemen yang berada di bagian bawah halaman atau bagian kaki.
+3. Margin vs. Padding:
+
+Margin: Margin adalah ruang di luar batas elemen. Margin mengontrol jarak antara elemen tersebut dan elemen-elemen lain di sekitarnya.
+Padding: Padding adalah ruang di dalam batas elemen, di antara batas elemen dan kontennya sendiri. Padding mengontrol jarak antara konten elemen dan batasnya sendiri.
+4. Perbedaan antara Bootstrap dan Tailwind:
+
+Bootstrap:
+
+Bootstrap adalah kerangka kerja CSS yang lebih klasik dan memiliki gaya yang lebih baku.
+Memiliki sejumlah komponen siap pakai, seperti tombol, jumbotron, dan kartu.
+Lebih mudah digunakan jika kita ingin cepat mendapatkan tampilan yang konsisten.
+Memerlukan sedikit penyesuaian jika kita ingin tampilan yang sangat unik.
+Tailwind:
+
+Tailwind adalah kerangka kerja CSS yang bersifat utility-first, yang berarti kita membangun tampilan kita dengan menggabungkan kelas-kelas utilitas.
+Tidak memiliki banyak komponen siap pakai seperti Bootstrap, tetapi memberikan fleksibilitas yang besar dalam merancang tampilan yang sangat khusus.
+Memerlukan lebih banyak penulisan kode HTML untuk membangun tampilan.
+Lebih cocok jika kita ingin mengontrol setiap aspek tampilan kita secara detail.
+Kapan Menggunakan Bootstrap vs. Tailwind:
+
+kita mungkin ingin menggunakan Bootstrap jika kita membutuhkan prototip atau membangun situs dengan tampilan yang umum dan cepat.
+Tailwind cocok jika kita ingin memiliki kendali yang lebih besar atas tampilan kita dan siap untuk menulis lebih banyak kode HTML.
+Pilihan antara Bootstrap dan Tailwind tergantung pada proyek kita dan seberapa banyak kontrol yang kita inginkan terhadap tampilan situs kita.
 </details>

@@ -91,32 +91,33 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
-def remove(request, id = None):
+def delete(request, id):
     data = Item.objects.get(pk=id)
-    context = {'item' : data}
-    if request.method == 'GET':
-        return render(request, '/', context)
-    elif request.method == 'POST':
-        data.delete()
-        return redirect('/')
+    data.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
 
 def increment(request, id = None):
     data = Item.objects.get(pk=id)
-    context = {'item' : data}
-    if request.method == 'GET':
-        return render(request, '/', context)
-    elif request.method == 'POST':
-        data.amount += 1
+    data.amount += 1
     data.save()
-    return redirect('/')
+    return HttpResponseRedirect(reverse('main:show_main'))
     
 def decrement(request, id = None):
     data = Item.objects.get(pk=id)
-    context = {'item' : data}
-    if request.method == 'GET':
-        return render(request, '/', context)
-    elif request.method == 'POST':
-        if data.amount > 1:
-            data.amount -= 1
+    if data.amount > 1:
+        data.amount -= 1
     data.save()
-    return redirect('/')
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+def edit_item(request, id):
+    item = Item.objects.get(pk = id)
+
+    form = ItemForm(request.POST or None, instance=item)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_item.html", context)

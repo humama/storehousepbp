@@ -28,14 +28,20 @@
         {% for item in items %}
             <tr>
                 <td>{{item.name}}</td>
-                <td><form action="{% url 'main:decrement' id=item.id %}" method="post">{%csrf_token%}<button>-</button></form> {{item.amount}} <form action="{% url 'main:increment' id=item.id %}" method="post">{%csrf_token%}<button>+</button></form></td>
+                <td><a href="{% url 'main:decrement' item.pk %}"><button>-</button></a> {{item.amount}} <a href="{% url 'main:increment' item.pk %}"><button>+</button></a></td>
                 <td>{{item.description}}</td>
                 <td>{{item.date_added}}</td>
                 <td>
-                    <form action="{% url 'main:remove' id=item.id %}" method="post">
-                        {%csrf_token%}
+                    <a href="{% url 'main:edit_item' item.pk %}">
                         <button>
-                            Remove
+                            Edit
+                        </button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'main:delete' item.pk %}">
+                        <button>
+                            Delete
                         </button>
                     </form>
                 </td>

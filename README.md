@@ -482,3 +482,21 @@ kita mungkin ingin menggunakan Bootstrap jika kita membutuhkan prototip atau mem
 Tailwind cocok jika kita ingin memiliki kendali yang lebih besar atas tampilan kita dan siap untuk menulis lebih banyak kode HTML.
 Pilihan antara Bootstrap dan Tailwind tergantung pada proyek kita dan seberapa banyak kontrol yang kita inginkan terhadap tampilan situs kita.
 </details>
+<details>
+    <summary>Tugas 6</summary>
+1. Perbedaan antara Asynchronous Programming dan Synchronous Programming:
+
+Asynchronous Programming: Dalam asynchronous programming, operasi-operasi dapat berlangsung secara bersamaan tanpa harus menunggu operasi sebelumnya selesai. Ini memungkinkan program untuk menjalankan tugas-tugas lain saat menunggu operasi lain selesai, yang membuatnya cocok untuk menangani operasi yang mungkin memakan waktu seperti pengambilan data dari server atau operasi I/O.
+Synchronous Programming: Synchronous programming adalah paradigma di mana operasi-operasi berjalan secara berurutan, satu per satu. Program akan menunggu operasi saat ini selesai sebelum melanjutkan operasi berikutnya. Ini adalah pendekatan tradisional dalam pemrograman.
+Paradigma Event-Driven Programming:
+Paradigma event-driven programming adalah pendekatan di mana program merespons peristiwa (events) yang terjadi, seperti tindakan pengguna (misalnya, klik mouse, input pengguna, dll.), dengan menjalankan callback functions yang telah ditentukan. Ini memungkinkan program merespons secara dinamis terhadap interaksi pengguna atau peristiwa lainnya. Dalam tugas ini, contoh penerapannya adalah dalam JavaScript yang digunakan untuk mengendalikan tindakan pengguna, seperti mengklik tombol yang memicu permintaan AJAX saat tindakan pengguna terjadi.
+
+Penerapan Asynchronous Programming pada AJAX:
+Asynchronous JavaScript and XML (AJAX) memanfaatkan asynchronous programming untuk melakukan permintaan ke server tanpa harus menghentikan eksekusi kode lain. Ketika Anda membuat permintaan AJAX, permintaan tersebut dapat berlangsung di latar belakang dan akan memanggil callback function ketika respons dari server tiba. Ini memungkinkan aplikasi web untuk tetap responsif saat menunggu respons dari server.
+
+Bandingan antara Fetch API dan jQuery:
+
+Fetch API: Ini adalah API modern yang disediakan oleh browser. Ini mendukung Promise, yang membuat asynchronous programming lebih mudah. Fetch API lebih ringan karena tidak memerlukan library eksternal dan merupakan standar modern. Ini memiliki dukungan yang kuat untuk pengiriman dan penerimaan data, serta dapat mengelola respons dalam berbagai format (seperti JSON atau XML). Fetch API juga memiliki kinerja yang baik.
+jQuery: Library jQuery adalah solusi yang lebih tua tetapi masih digunakan secara luas. Ini memberikan utilitas yang kuat untuk berinteraksi dengan DOM dan melakukan permintaan AJAX dengan sintaks yang mudah dipahami. Namun, kelemahan jQuery adalah ukurannya yang lebih besar dibandingkan Fetch API, dan penggunaan library eksternal dapat memperlambat waktu muat aplikasi web. Selain itu, dengan kemajuan JavaScript modern dan fitur bawaan browser, banyak pengembang beralih ke Fetch API.
+Pilihan antara keduanya tergantung pada kebutuhan dan tujuan proyek Anda. Jika Anda ingin mengembangkan aplikasi web modern dengan kinerja tinggi, lebih disarankan untuk menggunakan Fetch API karena merupakan teknologi yang lebih baru dan merupakan bagian dari JavaScript standar. Namun, jika Anda memiliki kode legacy atau proyek yang lebih tua, jQuery masih merupakan pilihan yang sah untuk melakukan operasi DOM dan permintaan AJAX.
+</details>

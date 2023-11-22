@@ -101,14 +101,14 @@
         }
         async function refreshItems() {
             document.getElementById("item_table").innerHTML = ""
-            const products = await getItems()
+            const items = await getItems()
             let htmlString = `<tr>
                 <th>Name</th>
                 <th>Amount</th>
                 <th>Description</th>
                 <th>Date Added</th>
             </tr>`
-            products.forEach((item) => {
+            items.forEach((item) => {
                 htmlString += `\n<tr>
                 <td>${item.fields.name}</td>
                 <td>${item.fields.amount}</td>

@@ -143,6 +143,7 @@ def add_item_ajax(request):
 
     return HttpResponseNotFound()
 
+@csrf_exempt
 def create_item_flutter(request):
     if request.method == 'POST':
         
